@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from 'react'
 
-function App() {
+import { Flex } from '@chakra-ui/react';
+
+import Header from './components/Header';
+import StudentsList from './components/StudentsList';
+
+import { loadAll, findBySearchTerm } from './services/student';
+
+const App = () => {
+  const [students, setStudents] = useState([])
+
+  useEffect(() => {
+    const loadAll = async () => {
+
+    }
+
+    loadAll()
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Flex
+      direction="column"
+      alignItems="center"
+    >
+      <Header/>
+      <StudentsList data={students}/>
+    </Flex>
   );
 }
 
