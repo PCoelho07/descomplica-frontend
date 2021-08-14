@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 
+import { ApolloProvider } from '@apollo/client';
+import client from './services/graphql/client'
+
 const theme = extendTheme({
   styles: {
     global: {
@@ -18,7 +21,9 @@ const theme = extendTheme({
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
-      <App />
+      <ApolloProvider client={client}>
+        <App />
+      </ApolloProvider>
     </ChakraProvider>
   </React.StrictMode>,
   document.getElementById('root')

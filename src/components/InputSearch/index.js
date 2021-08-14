@@ -8,7 +8,6 @@ const InputSearch = ({ onChange }) => {
 
     const onChangeInput = (event) => {
         const term = event.target.value
-        console.log(term)
         setTerm(term)
         onChange(term)
     }
